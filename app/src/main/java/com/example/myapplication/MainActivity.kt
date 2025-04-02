@@ -20,13 +20,14 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        //assigned variables
         val btnReset = findViewById<Button>(R.id.btnReset)
         val txtView = findViewById<TextView>(R.id.TxtView)
         val edtTime = findViewById<EditText>(R.id.EdtTime)
         val btnGenerate = findViewById<Button>(R.id.btnGenerate)
         val btnExit = findViewById<Button>(R.id.btnExit)
 
-
+        //Generates meal for time of day
         btnGenerate.setOnClickListener {
             val input = edtTime.text.toString().trim().lowercase()
 
@@ -56,14 +57,16 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Please enter text", Toast.LENGTH_SHORT).show()
                 }
             }
-
+            //Displays meal
             txtView.text = meals
         }
+        //Reset button to clear textviews and EditTexts
         btnReset.setOnClickListener {
             txtView.text = ""
             edtTime.text.clear()
             Toast.makeText(this, "Cleared", Toast.LENGTH_SHORT).show()
         }
+        //Closes App
         btnExit.setOnClickListener{
             finish()
         }
